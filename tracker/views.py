@@ -1,13 +1,14 @@
 from rest_framework import viewsets, generics
 
-# Create your views here.
 from tracker.models import PleasantHabit, UsefulHabit
+from tracker.paginators import HabitPagination
 from tracker.serializers import PleasantHabitSerializer, UsefulHabitSerializer
 
 
 class PleasantHabitViewSet(viewsets.ModelViewSet):
     serializer_class = PleasantHabitSerializer
     queryset = PleasantHabit.objects.all()
+    pagination_class = HabitPagination
 
     def perform_create(self, serializer):
         pleasant_habit = serializer.save(user=self.request.user)
@@ -25,6 +26,7 @@ class UsefulHabitCreateView(generics.CreateAPIView):
 class UsefulHabitListView(generics.ListAPIView):
     queryset = UsefulHabit.objects.all()
     serializer_class = UsefulHabitSerializer
+    pagination_class = HabitPagination
 
 
 class UsefulHabitDetailView(generics.RetrieveAPIView):
