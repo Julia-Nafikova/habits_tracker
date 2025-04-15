@@ -17,6 +17,9 @@ django-phonenumber-field = "^8.0.0"
 django-phonenumbers = "^1.0.1"
 pillow = "^11.1.0"
 drf-yasg = "^1.21.8"
+celery = "^5.4.0"
+eventlet = "^0.39.0"
+redis = "^5.2.1"
 
 
 [build-system]
