@@ -23,8 +23,8 @@ class Manager(UserManager):
 class User(AbstractUser):
     username = None
     email = models.EmailField(unique=True, verbose_name="Email", help_text="Введите email")
-    tg_nick = models.CharField(max_length=33, verbose_name="Telegram-ник",
-                               help_text="Введите telegram-ник")
+    chat_id = models.CharField(max_length=50, verbose_name="Телеграм сhat-id",
+                               help_text="Укажите телеграм сhat-id", null=True, blank=True)
     avatar = models.ImageField(
         upload_to="users/avatars/", blank=True, null=True, verbose_name="Аватар", help_text="Загрузите аватар"
     )
