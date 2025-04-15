@@ -24,26 +24,11 @@ class UsefulHabit(models.Model):
     action = models.CharField(max_length=255, verbose_name="Действие", help_text="Введите действие привыки")
     related_habit = models.ForeignKey(PleasantHabit, on_delete=models.SET_NULL, verbose_name="Связанная привычка",
                                       help_text="Выберите связанную привычку", null=True, blank=True)
-    periodicity = models.PositiveIntegerField(verbose_name="Периодичность",
+    periodicity = models.IntegerField(verbose_name="Периодичность",
                                               help_text="Укажите периодичность выполнения в днях", default=1)
     award = models.CharField(max_length=255, verbose_name="Вознаграждение", help_text="Укажите вознаграждение",
                              null=True, blank=True)
-    DURATION_CHOICES = (
-        ("10", "10 секунд"),
-        ("20", "20 секунд"),
-        ("30", "30 секунд"),
-        ("40", "40 секунд"),
-        ("50", "50 секунд"),
-        ("60", "60 секунд"),
-        ("70", "70 секунд"),
-        ("80", "80 секунд"),
-        ("90", "90 секунд"),
-        ("100", "100 секунд"),
-        ("110", "110 секунд"),
-        ("120", "120 секунд"),
-    )
-    duration = models.CharField(max_length=10, choices=DURATION_CHOICES, verbose_name="Продолжительность",
-                                help_text="Укажите продолжительность")
+    duration = models.IntegerField(verbose_name="Продолжительность", help_text="Укажите продолжительность в секундах")
     is_published = models.BooleanField(verbose_name="Признак публичности", help_text="Опубликовать привычку?",
                                        default=True)
 
