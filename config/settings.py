@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'tracker',
     'corsheaders',
     'drf_yasg',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -141,8 +142,8 @@ CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
 
 CELERY_BEAT_SCHEDULE = {
-    'send_telegram_message': {
-        'task': 'tracker.tasks.send_telegram_message',
+    'send_reminder': {
+        'task': 'tracker.tasks.send_reminder',
         'schedule': timedelta(minutes=1),
     },
 }
