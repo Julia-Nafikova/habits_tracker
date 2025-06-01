@@ -29,7 +29,8 @@ class UsefulHabit(models.Model):
     award = models.CharField(max_length=255, verbose_name="Вознаграждение", help_text="Укажите вознаграждение",
                              null=True, blank=True)
     duration = models.IntegerField(verbose_name="Продолжительность", help_text="Укажите продолжительность в секундах")
-    is_published = models.BooleanField(verbose_name="Признак публичности", help_text="Опубликовать привычку?",
+    is_published = models.BooleanField(max_length=5, verbose_name="Признак публичности",
+                                       help_text="Опубликовать привычку?",
                                        default=True)
 
     class Meta:

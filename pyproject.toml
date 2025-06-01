@@ -16,12 +16,14 @@ psycopg2-binary = "^2.9.10"
 django-phonenumber-field = "^8.0.0"
 django-phonenumbers = "^1.0.1"
 pillow = "^11.1.0"
-drf-yasg = "^1.21.8"
-celery = "^5.4.0"
+drf-yasg = "^1.21.10"
+celery = {extras = ["redis"], version = "^5.4.0"}
 eventlet = "^0.39.0"
 redis = "^5.2.1"
 requests = "^2.32.3"
 django-celery-beat = "^2.7.0"
+gunicorn = "^23.0.0"
+django-redis = "^5.4.0"
 
 [tool.poetry.group.test.dependencies]
 coverage = "^7.6.10"
